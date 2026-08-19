@@ -173,6 +173,12 @@
         try {
             let result = eval(expression);
 
+            if (result === undefined || Number.isNaN(result) || !Number.isFinite(result)) {
+                display.innerText = "Error";
+                expression = "";
+                return;
+            }
+
             display.innerText = result;
             expression = result.toString();
 
